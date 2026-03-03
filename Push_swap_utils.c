@@ -6,7 +6,7 @@
 /*   By: gumagni <gumagni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 18:54:20 by gumagni           #+#    #+#             */
-/*   Updated: 2026/03/03 14:52:47 by gumagni          ###   ########.fr       */
+/*   Updated: 2026/03/03 18:18:49 by gumagni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,17 @@ t_list	*ft_lstnew(void *content)
 	new->n = content;
 	new->next = NULL;
 	return (new);
+}
+
+void	free_list(t_list *lst)
+{
+	t_list	*tmp;
+
+	while (lst)
+	{
+		tmp = lst->next;
+		free(lst->n);
+		free(lst);
+		lst = tmp;
+	}
 }
