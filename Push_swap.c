@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gumagni <gumagni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 19:33:24 by guido             #+#    #+#             */
-/*   Updated: 2026/03/04 22:54:26 by guido            ###   ########.fr       */
+/*   Updated: 2026/03/06 18:51:26 by gumagni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,17 @@
 void	ft_Pushswap(t_list *a)
 {
 	int	tmp;
+	int	size;
 
-	tmp = 0;
-	if (ft_lstsize(a) == 2 && a->n > a->next->n)
+	size = ft_lstsize(a);
+	if (size == 2 && a->n > a->next->n)
 	{
-		tmp = a->n;
-		a->n = a->next->n;
-		a->next->n = tmp;
+		sa(a);
 	}
-	if (ft_lstsize(a) == 3)
+	if (size == 3)
 	{
-		if (a->n > a->next->n && a->n > a->next->next->n)
-		{
-			tmp = a->next->next->n;
-			a->next->next->n = a->n;
-			if (tmp > a->next->n)
-			{
-				a->n = a->next->n;
-				a->next->n = tmp;
-			}
-			else
-				a->n = tmp;
-		}
+		//ra(a);
+		rra(a);
 	}
 }
 
@@ -77,3 +66,36 @@ int	main(int ac, char **av)
 }
 
 //dovro usare ft_printf mi sa
+
+/*if (a->n > a->next->n && a->n > a->next->next->n)
+{
+	tmp = a->next->next->n;
+	a->next->next->n = a->n;
+	if (tmp > a->next->n)
+	{
+		a->n = a->next->n;
+		a->next->n = tmp;
+	}
+	else
+		a->n = tmp;
+}
+if (a->n > a->next->n)
+{
+	tmp = a->next->n;
+	a->next->n = a->n;
+	if (tmp > a->next->next->n)
+		a->next->next->n = tmp;
+	a->n = tmp;
+}
+if (a->n > a->next->next->n)
+{
+	tmp = a->next->next->n;
+	a->next->next->n = a->n;
+	if (a->next->n > tmp)
+	{
+		a->n = a->next->n;
+		a->next->n = tmp;
+	}
+	else
+		a->n = tmp;
+}*/

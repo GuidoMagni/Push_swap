@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gumagni <gumagni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 19:07:28 by gumagni           #+#    #+#             */
-/*   Updated: 2026/03/04 22:30:36 by guido            ###   ########.fr       */
+/*   Updated: 2026/03/06 18:52:06 by gumagni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,8 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 void	free_list(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
+void	sa(t_list	*a);
+void	ra(t_list	*a);
+void	rra(t_list	*a);
 
 #endif
