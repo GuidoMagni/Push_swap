@@ -6,7 +6,7 @@
 /*   By: gumagni <gumagni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 18:14:47 by gumagni           #+#    #+#             */
-/*   Updated: 2026/03/06 19:45:04 by gumagni          ###   ########.fr       */
+/*   Updated: 2026/03/06 21:13:43 by gumagni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,24 +40,17 @@ void	ra(t_list	*a)
 
 void	rra(t_list	*a)
 {
-	int	tmp;
+	int	tmp1;
 	t_list	*start;
 
-	tmp = 0;
 	start = a;
-	while (a)
-	{
-		
-	}
-	start->n = tmp;
-}
 
-/*		if (!a->next->next)
-			tmp1 = a->next->next->n;
-		else
-		{
-			tmp = a->next->n;
-			a->next->n = a->n;
-			a->next->next->n = tmp;
-		}
-		a = a->next;*/
+	while (a->next)
+	{
+		if (!a->next->next)
+			tmp1 = a->n;         // ???
+		a = a->next;
+	}
+	start->n = a->n;
+	a->n = tmp1;
+}
