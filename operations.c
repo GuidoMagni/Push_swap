@@ -6,13 +6,13 @@
 /*   By: gumagni <gumagni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 18:14:47 by gumagni           #+#    #+#             */
-/*   Updated: 2026/03/06 21:13:43 by gumagni          ###   ########.fr       */
+/*   Updated: 2026/03/08 18:02:04 by gumagni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
 
-void	sa(t_list	*a)
+void	swap(t_list *a)
 {
 	int	tmp;
 
@@ -23,10 +23,31 @@ void	sa(t_list	*a)
 	a->next->n = tmp;
 }
 
-void	ra(t_list	*a)
+void	sa(t_list *a)
+{
+	write(1, "sa\n", 3);
+	swap(a);
+}
+
+void	sb(t_list *a)
+{
+	write(1, "sb\n", 3);
+	swap(a);
+}
+
+void	ss(t_list *a, t_list *b)
+{
+	write(1, "ss\n", 3);
+	swap(a);
+	swap(b);
+}
+
+void	rotate(t_list *a)
 {
 	int	tmp;
 
+	if (!a || !a->next)
+		return ;
 	tmp = a->n;
 	while (a)
 	{
@@ -38,19 +59,83 @@ void	ra(t_list	*a)
 	}
 }
 
-void	rra(t_list	*a)
+void	ra(t_list *a)
 {
-	int	tmp1;
-	t_list	*start;
+	write(1, "ra\n", 3);
+	rotate(a);
+}
 
-	start = a;
+void	rb(t_list *a)
+{
+	write(1, "rb\n", 3);
+	rotate(a);
+}
 
-	while (a->next)
-	{
-		if (!a->next->next)
-			tmp1 = a->n;         // ???
-		a = a->next;
-	}
-	start->n = a->n;
-	a->n = tmp1;
+void	rr(t_list *a, t_list *b)
+{
+	write(1, "rr\n", 3);
+	rotate(a);
+	rotate(b);
+}
+
+void	rrotate(t_list **a)
+{
+	t_list	*last; //uso nodi invece dei valori
+	t_list	*penultimo;
+
+	if (!a || !*a || !(*a)->next)
+		return;
+
+	penultimo = *a;
+	while (penultimo->next->next)
+		penultimo = penultimo->next;
+	last = penultimo->next;
+	penultimo->next = NULL;
+	last->next = *a;
+	*a = last;
+}
+
+void	rra(t_list **a)
+{
+	write(1, "rra\n", 4);
+	rrotate(a);
+}
+
+void	rrb(t_list **a)
+{
+	write(1, "rrb\n", 4);
+	rrotate(a);
+}
+
+void	rrr(t_list **a, t_list **b)
+{
+	write(1, "rrr\n", 4);
+	rrotate(a);
+	rrotate(b);
+}
+
+void	pa(t_list **a, t_list **b)
+{
+	t_list	*b_first;
+
+	write(1, "pa\n", 3);
+	if (!*b)
+		return ;
+	b_first = *b;
+	*b = (*b)->next;
+	b_first->next = *a;
+	*a = b_first;
+}
+
+void	pb(t_list **a, t_list **b)
+{
+	t_list	*a_first;
+
+	write(1, "pb\n", 3);
+	if (!*a)
+		return ;
+	a_first = *a;
+	*a = (*a)->next;
+	a_first->next = *b;
+	*b = a_first;
 }

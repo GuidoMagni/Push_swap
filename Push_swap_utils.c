@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gumagni <gumagni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 18:54:20 by gumagni           #+#    #+#             */
-/*   Updated: 2026/03/04 22:30:06 by guido            ###   ########.fr       */
+/*   Updated: 2026/03/08 17:41:52 by gumagni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,15 +88,15 @@ t_list	*ft_lstnew(int content)
 	return (new);
 }
 
-void	free_list(t_list *lst)
+void	free_stack(t_list **lst)
 {
 	t_list	*tmp;
 
-	while (lst)
+	while (*lst)
 	{
-		tmp = lst->next;
-		free(lst);
-		lst = tmp;
+		tmp = (*lst)->next;
+		free(*lst);
+		*lst = tmp;
 	}
 }
 
