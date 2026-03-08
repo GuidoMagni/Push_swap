@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gumagni <gumagni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 18:14:47 by gumagni           #+#    #+#             */
-/*   Updated: 2026/03/08 18:02:04 by gumagni          ###   ########.fr       */
+/*   Updated: 2026/03/08 21:53:50 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,36 +42,35 @@ void	ss(t_list *a, t_list *b)
 	swap(b);
 }
 
-void	rotate(t_list *a)
+void	rotate(t_list **a)
 {
-	int	tmp;
+	t_list	*first;
+	t_list	*last;
 
-	if (!a || !a->next)
+	if (!a || !*a || !(*a)->next)
 		return ;
-	tmp = a->n;
-	while (a)
-	{
-		if (!a->next)
-			a->n = tmp;
-		else
-			a->n = a->next->n;
-		a = a->next;
-	}
+	first = *a;
+	last = *a;
+	while (last->next)
+		last = last->next;
+	*a = first->next;
+	first->next = NULL;
+	last->next = first;
 }
 
-void	ra(t_list *a)
+void	ra(t_list **a)
 {
 	write(1, "ra\n", 3);
 	rotate(a);
 }
 
-void	rb(t_list *a)
+void	rb(t_list **a)
 {
 	write(1, "rb\n", 3);
 	rotate(a);
 }
 
-void	rr(t_list *a, t_list *b)
+void	rr(t_list **a, t_list **b)
 {
 	write(1, "rr\n", 3);
 	rotate(a);
@@ -139,3 +138,20 @@ void	pb(t_list **a, t_list **b)
 	a_first->next = *b;
 	*b = a_first;
 }
+
+/*void	rotate(t_list *a)
+{
+	int	tmp;
+
+	if (!a || !a->next)
+		return ;
+	tmp = a->n;
+	while (a)
+	{
+		if (!a->next)
+			a->n = tmp;
+		else
+			a->n = a->next->n;
+		a = a->next;
+	}
+}*/

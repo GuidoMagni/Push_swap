@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gumagni <gumagni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 19:33:24 by guido             #+#    #+#             */
-/*   Updated: 2026/03/08 18:03:22 by gumagni          ###   ########.fr       */
+/*   Updated: 2026/03/08 21:59:39 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_Pushswap(t_list **a, t_list **b)
 	if (size == 3)
 	{
 		if ((*a)->n > (*a)->next->n && (*a)->n > (*a)->next->next->n)
-			ra(*a);
+			ra(a);
 		if ((*a)->next->n > (*a)->n && (*a)->next->n > (*a)->next->next->n)
 			rra(a);
 		if ((*a)->n > (*a)->next->n)
