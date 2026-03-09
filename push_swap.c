@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 19:33:24 by guido             #+#    #+#             */
-/*   Updated: 2026/03/08 21:59:39 by guido            ###   ########.fr       */
+/*   Updated: 2026/03/09 16:11:43 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Push_swap.h"
+#include "push_swap.h"
 
 void	pstack(t_list *a)
 {
@@ -26,10 +26,10 @@ void	pstack(t_list *a)
 	}
 }
 
-void	ft_Pushswap(t_list **a, t_list **b)
+void	ft_pushswap(t_list **a, t_list **b)
 {
 	t_list	*tmp;
-	int	size;
+	int		size;
 
 	size = ft_lstsize(*a);
 	if (size == 2 && (*a)->n > (*a)->next->n)
@@ -68,7 +68,7 @@ int	main(int ac, char **av)
 		ft_lstadd_back(&a, ft_lstnew(n));
 		num++;
 	}
-	ft_Pushswap(&a, &b);
+	ft_pushswap(&a, &b);
 	write(1, "STACK a:\n", 9);
 	pstack(a);
 	write(1, "STACK b:\n", 10);
@@ -76,5 +76,3 @@ int	main(int ac, char **av)
 	free_stack(&a);
 	free_stack(&b);
 }
-
-//dovro usare ft_printf mi sa

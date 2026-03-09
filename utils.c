@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gumagni <gumagni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 18:54:20 by gumagni           #+#    #+#             */
-/*   Updated: 2026/03/08 17:41:52 by gumagni          ###   ########.fr       */
+/*   Updated: 2026/03/09 16:00:39 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "Push_swap.h"
+#include "push_swap.h"
 
 long	ft_is_space(char c)
 {
@@ -25,8 +24,8 @@ long	ft_is_space(char c)
 
 long	ft_atoi(const char *str)
 {
-	int	i;
-	int	a;
+	int		i;
+	int		a;
 	long	result;
 
 	result = 0;
@@ -86,37 +85,4 @@ t_list	*ft_lstnew(int content)
 	new->n = content;
 	new->next = NULL;
 	return (new);
-}
-
-void	free_stack(t_list **lst)
-{
-	t_list	*tmp;
-
-	while (*lst)
-	{
-		tmp = (*lst)->next;
-		free(*lst);
-		*lst = tmp;
-	}
-}
-
-void	ft_lstadd_front(t_list **lst, t_list *new)
-{
-	if (!lst || !new)
-		return ;
-	new->next = *lst;
-	*lst = new;
-}
-
-int	ft_lstsize(t_list *lst)
-{
-	int	len;
-
-	len = 0;
-	while (lst)
-	{
-		len++;
-		lst = lst->next;
-	}
-	return (len);
 }
