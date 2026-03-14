@@ -1,46 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/09 16:01:10 by guido             #+#    #+#             */
-/*   Updated: 2026/03/14 17:33:19 by guido            ###   ########.fr       */
+/*   Created: 2026/03/14 17:34:19 by guido             #+#    #+#             */
+/*   Updated: 2026/03/14 19:07:37 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_list **lst)
+int	max(t_list *a)
 {
-	t_list	*tmp;
+	int	max;
 
-	while (*lst)
+	max = a->n;
+	while (a)
 	{
-		tmp = (*lst)->next;
-		free(*lst);
-		*lst = tmp;
+		if (a->n > max)
+			max = a->n;
+		a = a->next;
 	}
+	return (max);
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	min(t_list *a)
 {
-	if (!lst || !new)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	int	min;
+
+	min = a->n;
+	while (a)
+	{
+		if (a->n < min)
+			min = a->n;
+		a = a->next;
+	}
+	return (min);
 }
 
-int	ft_lstsize(t_list *lst)
+int	pos(t_list *a, int value)
 {
-	int	len;
+	int	pos;
 
-	len = 0;
-	while (lst)
+	pos = 0;
+	while (a->n != value)
 	{
-		len++;
-		lst = lst->next;
+		pos++;
+		a = a->next;
 	}
-	return (len);
+	return (pos);
 }
