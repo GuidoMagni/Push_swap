@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 17:15:12 by guido             #+#    #+#             */
-/*   Updated: 2026/03/14 19:09:43 by guido            ###   ########.fr       */
+/*   Updated: 2026/03/18 19:34:39 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,24 @@ void	sort_5(t_list **a, t_list **b)
 	pa(a, b);
 	pa(a, b);
 }
+
+/*void	sort_100(t_list **a, t_list **b)
+{
+	t_list	chunk1;
+	int	hold_first;
+	t_list	*na;
+
+	na = *a;
+	while (na->next && na->n != hold_first)
+	{
+		
+		na = na->next
+	}
+}*/
+
+
+
+
 
 	// pb(a, b);
 	// pb(a, b);
