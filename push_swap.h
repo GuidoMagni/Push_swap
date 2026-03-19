@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gumagni <gumagni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 19:07:28 by gumagni           #+#    #+#             */
-/*   Updated: 2026/03/14 19:08:19 by guido            ###   ########.fr       */
+/*   Updated: 2026/03/19 18:53:26 by gumagni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+#include <stdbool.h>
 
 long	ft_atoi(const char *str);
 long	ft_is_space(char c);
@@ -25,7 +26,13 @@ void	error(long a);
 typedef struct s_list
 {
 	int				n;
+	int				index;
+	int				cost;
+	bool			above_median;
+	bool			cheapest;
+	struct s_list	*target;
 	struct s_list	*next;
+	struct s_list	*prev;
 }	t_list;
 
 t_list	*ft_lstnew(int content);
