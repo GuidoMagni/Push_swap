@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gumagni <gumagni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 19:33:24 by guido             #+#    #+#             */
-/*   Updated: 2026/03/19 19:35:49 by gumagni          ###   ########.fr       */
+/*   Updated: 2026/03/27 00:56:30 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	main(int ac, char **av)
 	t_list	*b;
 
 	num = 1;
-	a = NULL;	t_list	*tmp;
+	a = NULL;
 	b = NULL;
 
 	if (ac == 1 || (ac == 2 && !av[1][0]))
