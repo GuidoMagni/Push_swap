@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 19:33:24 by guido             #+#    #+#             */
-/*   Updated: 2026/03/27 00:56:30 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/02 14:13:46 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ void	ft_pushswap(t_list **a, t_list **b)
 	if (size == 2 && (*a)->n > (*a)->next->n)
 		sa(*a);
 	else if (size == 3)
-		sort_3(a, b);
+		sort_3(a);
 	else if (size == 5)
 		sort_5(a, b);
-	else
-		sort_stacks(a, b);
+	else		
+		sort_stack(a, b);
 }
 
 int	main(int ac, char **av)

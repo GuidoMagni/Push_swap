@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 19:07:28 by gumagni           #+#    #+#             */
-/*   Updated: 2026/03/27 13:06:18 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/02 20:31:42 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,13 @@ void	rrb(t_list **a);
 void	rrr(t_list **a, t_list **b);
 void	pa(t_list **a, t_list **b);
 void	pb(t_list **a, t_list **b);
-void	sort_3(t_list **a, t_list **b);
+void	sort_3(t_list **a);
 void	sort_5(t_list **a, t_list **b);
 int		max(t_list *a);
 int		min(t_list *a);
 int		pos(t_list *a, int value);
 char	**ft_split(char const *s, char c);
+void	current_index(t_list *a);
+bool	is_sorted(t_list *a);
 
 #endif

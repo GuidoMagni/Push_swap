@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 17:34:19 by guido             #+#    #+#             */
-/*   Updated: 2026/03/14 19:07:37 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/02 20:22:24 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,25 @@ int	pos(t_list *a, int value)
 		a = a->next;
 	}
 	return (pos);
+}
+
+void	current_index(t_list *a)
+{
+	int	i;
+	int	median;
+
+	i = 0;
+	if (!a)
+		return ;
+	median = stack_len(a) / 2;
+	while (a)
+	{
+		a->index = i;
+		if (i <= median)
+			a->above_median = true;
+		else
+			a->above_median = false;
+		a = a->next;
+		++i;
+	}
 }
