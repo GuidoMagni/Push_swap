@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 16:01:10 by guido             #+#    #+#             */
-/*   Updated: 2026/03/14 17:33:19 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/03 12:56:48 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,13 @@ int	ft_lstsize(t_list *lst)
 		lst = lst->next;
 	}
 	return (len);
+}
+
+t_list	*find_last(t_list *a)
+{
+	if (!a)
+		return (NULL);
+	while (a->next)
+		a = a->next;
+	return (a);
 }

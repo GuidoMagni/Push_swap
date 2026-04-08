@@ -6,31 +6,11 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 13:03:58 by guido             #+#    #+#             */
-/*   Updated: 2026/03/29 14:29:06 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/04 18:51:49 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	init_a(t_list **a, char **av)
-{
-	long	n;
-	int		i;
-
-	i = 0;
-	while (av[i])
-	{
-		if (error_syntax(av[i]))
-			free_errors(a);
-		n = ft_atoi(av[i]);
-		if (n > INT_MAX || n < INT_MIN)
-			free_errors(a);
-		if (error_dup(*a, (int)n))
-			free_errors(a);
-		append_node(a, (int)n);
-		i++;
-	}
-}
 
 static void	append_node(t_list **a, int num)
 {
@@ -54,6 +34,26 @@ static void	append_node(t_list **a, int num)
 		last_node = find_last(*a);
 		last_node->next = node;
 		node->prev = last_node;
+	}
+}
+
+void	init_a(t_list **a, char **av)
+{
+	long	n;
+	int		i;
+
+	i = 0;
+	while (av[i])
+	{
+		if (error_syntax(av[i]))
+			free_errors(a);
+		n = ft_atoi(av[i]);
+		if (n > INT_MAX || n < INT_MIN)
+			free_errors(a);
+		if (error_dup(*a, (int)n))
+			free_errors(a);
+		append_node(a, (int)n);
+		i++;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 17:34:19 by guido             #+#    #+#             */
-/*   Updated: 2026/04/02 20:22:24 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/03 12:49:38 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	current_index(t_list *a)
 	i = 0;
 	if (!a)
 		return ;
-	median = stack_len(a) / 2;
+	median = ft_lstsize(a) / 2;
 	while (a)
 	{
 		a->index = i;

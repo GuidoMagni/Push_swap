@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 19:33:24 by guido             #+#    #+#             */
-/*   Updated: 2026/04/02 14:13:46 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/03 12:54:22 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,7 @@ int	main(int ac, char **av)
 	pstack(a);
 	write(1, "STACK b:\n", 10);
 	pstack(b);
-	free_stack(&a);
 	free_stack(&b);*/
+	free_stack(&a);
 	return(0);
 }
-
