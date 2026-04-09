@@ -6,23 +6,11 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 16:01:10 by guido             #+#    #+#             */
-/*   Updated: 2026/04/03 12:56:48 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/09 11:32:55 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	free_stack(t_list **lst)
-{
-	t_list	*tmp;
-
-	while (*lst)
-	{
-		tmp = (*lst)->next;
-		free(*lst);
-		*lst = tmp;
-	}
-}
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {

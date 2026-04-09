@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 19:07:28 by gumagni           #+#    #+#             */
-/*   Updated: 2026/04/02 20:31:42 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/09 11:46:35 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,13 @@ typedef struct s_list
 
 t_list	*ft_lstnew(int content);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-void	free_stack(t_list **lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
+t_list	*find_last(t_list *a);
+int		error_syntax(char *str_n);
+int		error_duplicate(t_list *a, int n);
+void	free_stack(t_list **stack);
+void	free_errors(t_list **a);
 void	sa(t_list *a);
 void	sb(t_list *a);
 void	ss(t_list *a, t_list *b);

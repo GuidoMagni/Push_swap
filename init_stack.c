@@ -6,13 +6,13 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 13:03:58 by guido             #+#    #+#             */
-/*   Updated: 2026/04/04 18:51:49 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/09 12:10:09 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	append_node(t_list **a, int num)
+void	append_node(t_list **a, int num)
 {
 	t_list	*node;
 	t_list	*last_node;
