@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 11:33:30 by guido             #+#    #+#             */
-/*   Updated: 2026/04/09 11:38:29 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/13 10:46:24 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	error_syntax(char *str_n) //Define a funtion to handle syntax errors, and re
 	return (0);
 }
 
-int	error_duplicate(t_list *a, int n) //Define a function that checks for duplicate input numbers in stack `a`
+int	error_dup(t_list *a, int n) //Define a function that checks for duplicate input numbers in stack `a`
 {
 	if (!a) //Check for an empty stack
 		return (0);
@@ -64,6 +64,6 @@ void	free_stack(t_list **stack) //Define a function to free a stack if there are
 void	free_errors(t_list **a) //Define a function that, upon encountering a unique error, to free the stack and print an error message
 {
 	free_stack(a);
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	exit(1);
 }

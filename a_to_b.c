@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/08 16:48:23 by gumagni           #+#    #+#             */
-/*   Updated: 2026/04/09 12:09:34 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/14 19:03:21 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	set_target_a(t_list *a, t_list *b) //Define a function that sets for the cu
 		current_b = b; //Assign the pointer to point to the current `a` node
 		while (current_b) //While the pointer is not set to NULL
 		{
-			if (current_b->n > b->n 
-				&& current_b->n < best_match_index) //Check if the `a` node's value is bigger than `b` node, && smaller than the "closest bigger" so far
+			if (current_b->n < a->n 
+				&& current_b->n > best_match_index) //Check if the current `b` node's value is bigger than the current `a` node, && smaller than the "closest bigger" so far
 			{
 				best_match_index = current_b->n; //Set the best match as the value in the current `a` node
 				target_node = current_b; //Set `b` node's target node pointer to point to the current `a` node
@@ -45,8 +45,8 @@ void	cost_analysis_a(t_list *a, t_list *b) //Define a functio that analyses the 
 	int	len_a; //To store the length of stack `a`
 	int	len_b; //To store the length of stack `b`
 
-	len_a = stack_len(a);
-	len_b = stack_len(b);
+	len_a = ft_lstsize(a);
+	len_b = ft_lstsize(b);
 	while (a) //Loop through each node until the end of the stack is reached
 	{
 		a->cost = a->index; //Assign the current `a` node's push cost, its' index value
@@ -93,7 +93,9 @@ void	move_a_to_b(t_list **a, t_list **b) //Define a function that prepares the c
 {
 	t_list	*cheapest_node; //To store the pointer to the cheapest `a` node
 
-	cheapest_node = get_cheapest(*a); 
+	cheapest_node = get_cheapest(*a);
+	if (!cheapest_node || !cheapest_node->target)
+		return ;
 	if (cheapest_node->above_median 
 		&& cheapest_node->target->above_median) //If both the cheapest `a` node and its target `b` node are above the median
 		rotate_both(a, b, cheapest_node);
@@ -102,5 +104,5 @@ void	move_a_to_b(t_list **a, t_list **b) //Define a function that prepares the c
 		rev_rotate_both(a, b, cheapest_node); //`rev_rotate_both` will execute if neither nodes are at the top
 	prep_for_push(a, cheapest_node, 'a'); //Ensure the cheapest nodes is at the top, ready for pushing
 	prep_for_push(b, cheapest_node->target, 'b'); //Ensure the target node is at the top, ready for pushing
-	pb(b, a);
+	pb(a, b);
 }

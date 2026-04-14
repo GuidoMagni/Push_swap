@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gumagni <gumagni@student.42.fr>            +#+  +:+       +#+        */
+/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 17:15:12 by guido             #+#    #+#             */
-/*   Updated: 2026/04/08 16:42:47 by gumagni          ###   ########.fr       */
+/*   Updated: 2026/04/13 12:15:33 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void	sort_stack(t_list **a, t_list **b)
 
 	len_a = ft_lstsize(*a);
 	if (len_a-- > 5 && !is_sorted(*a))
-		pb(b, a);
+		pb(a, b);
 	if (len_a-- > 5 && !is_sorted(*a))
-		pb(b, a);
+		pb(a, b);
 	while (len_a-- > 5 && !is_sorted(*a)) //If stack `a` still has more than 5 nodes and aren't sorted
 	{
 		init_nodes_a(*a, *b); //Iniate all nodes from both stacks
@@ -67,8 +67,16 @@ void	sort_stack(t_list **a, t_list **b)
 	min_on_top(a); //Ensure smallest number is on top
 }
 
-
-
+void	min_on_top(t_list **a) //Define a function that moves the smallest number to the top
+{
+	while ((*a)->n != find_min(*a)->n) //As long as the smallest number is not at the top
+	{
+		if (find_min(*a)->above_median) //Rotate or reverse rotate according to the position of the node on the median
+			ra(a);
+		else
+			rra(a);
+	}
+}
 
 
 	// pb(a, b);

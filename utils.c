@@ -53,7 +53,7 @@ void	error(long a)
 {
 	if (a < INT_MIN || a > INT_MAX)
 	{
-		write(1, "Error\n", 1);
+		write(2, "Error\n", 6);
 		exit(1);
 	}
 }

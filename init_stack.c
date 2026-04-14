@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 13:03:58 by guido             #+#    #+#             */
-/*   Updated: 2026/04/09 12:10:09 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/13 12:10:03 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	append_node(t_list **a, int num)
 		return ;
 	node->next = NULL;
 	node->n = num;
+	node->cheapest = 0;
 	if (!(*a))
 	{
 		*a = node;
@@ -68,4 +69,38 @@ bool	is_sorted(t_list *a)
 		a = a->next;
 	}
 	return (true);
+}
+
+t_list	*get_cheapest(t_list *a) //Define a function that searches for the cheapest node, that is set by bool
+{
+	if (!a)
+		return (NULL);
+	while (a)
+	{
+		if (a->cheapest)
+			return (a);
+		a = a->next;
+	}
+	return (NULL);
+}
+
+void	prep_for_push(t_list **a, t_list *top, char stack_name) //Define a function that moves the required node to the top of the a
+{
+	while (*a != top) //Check if the required node is not already the first node
+	{
+		if (stack_name == 'a') //If not, and it is a `a`, execute the following
+		{
+			if (top->above_median)
+				ra(a);
+			else
+				rra(a);
+		}
+		else if (stack_name == 'b') //If not, and it is a `b`, execute the following
+		{
+			if (top->above_median)
+				rb(a);
+			else
+				rrb(a);
+		}	
+	}
 }
