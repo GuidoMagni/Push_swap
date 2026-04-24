@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 15:52:42 by guido             #+#    #+#             */
-/*   Updated: 2026/04/13 10:15:35 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/21 20:37:27 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,10 @@ void	rrr(t_list **a, t_list **b)
 	rrotate(b);
 }
 
-void	rev_rotate_both(t_list **a, t_list **b, t_list *cheapest_node) //Define a function that rotates both the bottom `a` and `b` nodes to the top of their stacks, if it's the cheapest move
+void	rev_rotate_both(t_list **a, t_list **b, t_list *cheapest_node)
 {
-	while (*b != cheapest_node->target
-		&& *a != cheapest_node) //As long as the current `b` node is not `a` cheapest node's target node && and the current `a` node is not the cheapest
-		rrr(a, b); //Reverse rotate both `a` and `b` nodes
-	current_index(*a); //Refresh current node positions
+	while (*b != cheapest_node->target && *a != cheapest_node)
+		rrr(a, b);
+	current_index(*a);
 	current_index(*b);
 }

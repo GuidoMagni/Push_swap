@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 18:54:20 by gumagni           #+#    #+#             */
-/*   Updated: 2026/03/09 16:00:39 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/21 17:51:32 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,31 +58,26 @@ void	error(long a)
 	}
 }
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*last;
+	int	len;
 
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
+	if (!lst)
+		return (0);
+	len = 0;
+	while (lst)
 	{
-		*lst = new;
-		return ;
+		len++;
+		lst = lst->next;
 	}
-	last = *lst;
-	while (last->next)
-		last = last->next;
-	last->next = new;
+	return (len);
 }
 
-t_list	*ft_lstnew(int content)
+t_list	*find_last(t_list *a)
 {
-	t_list	*new;
-
-	new = (t_list *)malloc(sizeof(t_list));
-	if (!new)
+	if (!a)
 		return (NULL);
-	new->n = content;
-	new->next = NULL;
-	return (new);
+	while (a->next)
+		a = a->next;
+	return (a);
 }

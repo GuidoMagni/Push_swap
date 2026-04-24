@@ -10,7 +10,7 @@ CFLAGS = -Wall -Werror -Wextra -I.
 RM = rm -rf
 
 # Source files
-SRCS = a_to_b.c b_to_a.c errors.c init_stack.c push.c push_swap.c rotate.c rrotate.c sort.c sort_utils.c split.c swap.c utils.c utils2.c
+SRCS = a_to_b.c b_to_a.c errors.c init_stack.c push.c push_swap.c rotate.c rrotate.c sort.c sort_utils.c split.c swap.c utils.c
 
 OBJ = $(patsubst %.c,$(OBJ_DIR)%.o,$(SRCS))
 

@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 17:15:12 by guido             #+#    #+#             */
-/*   Updated: 2026/04/13 12:15:33 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/21 20:43:01 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,10 @@ void	sort_3(t_list **a)
 
 void	sort_5(t_list **a, t_list **b)
 {
+	current_index(*a);
 	while (ft_lstsize(*a) != 3)
 	{
-		if (pos(*a, min(*a)) < ft_lstsize(*a) / 2)
-		{
-			while ((*a)->n != min(*a))
-				ra(a);
-		}
-		else
-		{
-			while ((*a)->n != min(*a))
-				rra(a);
-		}
+		min_on_top(a);
 		pb(a, b);
 	}
 	sort_3(a);
@@ -52,39 +44,28 @@ void	sort_stack(t_list **a, t_list **b)
 		pb(a, b);
 	if (len_a-- > 5 && !is_sorted(*a))
 		pb(a, b);
-	while (len_a-- > 5 && !is_sorted(*a)) //If stack `a` still has more than 5 nodes and aren't sorted
+	while (len_a-- > 5 && !is_sorted(*a))
 	{
-		init_nodes_a(*a, *b); //Iniate all nodes from both stacks
-		move_a_to_b(a, b); //Move the cheapest `a` nodes into a sorted stack `b`, until three nodes are left in stack `a`
+		init_nodes_a(*a, *b);
+		move_a_to_b(a, b);
 	}
 	sort_5(a, b);
-	while (*b) //Until the end of stack `b` is reached
+	while (*b)
 	{
-		init_nodes_b(*a, *b); //Initiate all nodes from both stacks
-		move_b_to_a(a, b); //Move all `b` nodes back to a sorted stack `a`
+		init_nodes_b(*a, *b);
+		move_b_to_a(a, b);
 	}
-	current_index(*a); //Refresh the current position of stack `a`
-	min_on_top(a); //Ensure smallest number is on top
+	current_index(*a);
+	min_on_top(a);
 }
 
-void	min_on_top(t_list **a) //Define a function that moves the smallest number to the top
+void	min_on_top(t_list **a)
 {
-	while ((*a)->n != find_min(*a)->n) //As long as the smallest number is not at the top
+	while ((*a)->n != find_min(*a)->n)
 	{
-		if (find_min(*a)->above_median) //Rotate or reverse rotate according to the position of the node on the median
+		if (find_min(*a)->above_median)
 			ra(a);
 		else
 			rra(a);
 	}
 }
-
-
-	// pb(a, b);
-	// pb(a, b);
-	// sort_3(a, b);
-	// if ((*b)->next->n > (*b)->n)
-	// 	sb(*b);
-	// pa(a, b);
-	// if ((*a)->n > (*a)->next->next->next->n)
-	// 	ra(a);
-	// pa(a, b);

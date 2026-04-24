@@ -6,27 +6,11 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/19 19:23:37 by gumagni           #+#    #+#             */
-/*   Updated: 2026/03/27 12:49:36 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/21 18:11:37 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*static int	word_count(char *s, char c)
-{
-	int		count;
-	bool	inside_word;
-
-	count = 0;
-	while (*s)
-	{
-		inside_word = false;
-		while (*s == c)
-			s++;
-		
-	}
-	
-}*/
 
 static int	word_count(char const *s, char c)
 {

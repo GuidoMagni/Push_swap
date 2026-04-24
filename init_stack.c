@@ -6,7 +6,7 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/27 13:03:58 by guido             #+#    #+#             */
-/*   Updated: 2026/04/13 12:10:03 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/24 16:51:44 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ bool	is_sorted(t_list *a)
 	return (true);
 }
 
-t_list	*get_cheapest(t_list *a) //Define a function that searches for the cheapest node, that is set by bool
+t_list	*get_cheapest(t_list *a)
 {
 	if (!a)
 		return (NULL);
@@ -84,23 +84,23 @@ t_list	*get_cheapest(t_list *a) //Define a function that searches for the cheape
 	return (NULL);
 }
 
-void	prep_for_push(t_list **a, t_list *top, char stack_name) //Define a function that moves the required node to the top of the a
+void	prep_for_push(t_list **a, t_list *top, char stack_name)
 {
-	while (*a != top) //Check if the required node is not already the first node
+	while (*a != top)
 	{
-		if (stack_name == 'a') //If not, and it is a `a`, execute the following
+		if (stack_name == 'a')
 		{
 			if (top->above_median)
 				ra(a);
 			else
 				rra(a);
 		}
-		else if (stack_name == 'b') //If not, and it is a `b`, execute the following
+		else if (stack_name == 'b')
 		{
 			if (top->above_median)
 				rb(a);
 			else
 				rrb(a);
-		}	
+		}
 	}
 }

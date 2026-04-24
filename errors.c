@@ -6,62 +6,58 @@
 /*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/09 11:33:30 by guido             #+#    #+#             */
-/*   Updated: 2026/04/13 10:46:24 by guido            ###   ########.fr       */
+/*   Updated: 2026/04/24 18:11:52 by guido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	error_syntax(char *str_n) //Define a funtion to handle syntax errors, and returns `1` for `error` should any of the following conditions are met
+int	error_syntax(char *str)
 {
-	if (!(*str_n == '+'
-			|| *str_n == '-'
-			|| (*str_n >= '0' && *str_n <= '9'))) //Check if the first character of the input string does not contain a sign or a digit
+	if (!(*str == '+' || *str == '-' || (*str >= '0' && *str <= '9')))
 		return (1);
-	if ((*str_n == '+'
-			|| *str_n == '-')
-		&& !(str_n[1] >= '0' && str_n[1] <= '9')) //Check if the first character of the input string contains a sign, but the second character does not contain a digit
+	if ((*str == '+' || *str == '-') && !(str[1] >= '0' && str[1] <= '9'))
 		return (1);
-	while (*++str_n) //If the error conditions above are passed, pre-increment to point to the next character in the string, and loop until the end of the string is reached
+	while (*++str)
 	{
-		if (!(*str_n >= '0' && *str_n <= '9')) //Check if the next character in the string is not a digit
+		if (!(*str >= '0' && *str <= '9'))
 			return (1);
 	}
 	return (0);
 }
 
-int	error_dup(t_list *a, int n) //Define a function that checks for duplicate input numbers in stack `a`
+int	error_dup(t_list *a, int n)
 {
-	if (!a) //Check for an empty stack
+	if (!a)
 		return (0);
-	while (a) //Loop until the end of stack `a` is reached
+	while (a)
 	{
-		if (a->n == n) //Check if the current node's value is equal to `n`. Refer to `init_stack_a()`
+		if (a->n == n)
 			return (1);
-		a = a->next; //Move to the next node to check for duplicates
+		a = a->next;
 	}
 	return (0);
 }
 
-void	free_stack(t_list **stack) //Define a function to free a stack if there are errors
+void	free_stack(t_list **stack)
 {
-	t_list	*tmp; //To store the next node in the stack before the current node is freed, because once a node is freed, you can't access its next pointer
+	t_list	*tmp;
 	t_list	*current;
 
-	if (!stack) //Check for an empty stack
+	if (!stack)
 		return ;
 	current = *stack;
-	while (current) //As long as a node exist in the stack
+	while (current)
 	{
-		tmp = current->next; //Assign to `tmp` the pointer to the next node
-		current->n = 0; //Assigning the node to `0` before freeing is not strictly necessary but it can help catch potential bugs such as memory-leaks and improve debugging
-		free(current); //Free the current node, deallocating the memory occupied by that node
-		current = tmp; //Assign `tmp` as the current first node
+		tmp = current->next;
+		current->n = 0;
+		free(current);
+		current = tmp;
 	}
 	*stack = NULL;
 }
 
-void	free_errors(t_list **a) //Define a function that, upon encountering a unique error, to free the stack and print an error message
+void	free_errors(t_list **a)
 {
 	free_stack(a);
 	write(2, "Error\n", 6);
