@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: guido <guido@student.42.fr>                +#+  +:+       +#+        */
+/*   By: gumagni <gumagni@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/19 19:33:24 by guido             #+#    #+#             */
-/*   Updated: 2026/04/21 17:22:27 by guido            ###   ########.fr       */
+/*   Created: 2026/02/19 19:33:24 by gumagni           #+#    #+#             */
+/*   Updated: 2026/04/26 15:37:20 by gumagni          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	if (ac == 1)
-		return (1);
+		return (0);
 	else if (ac == 2 && !av[1][0])
 	{
 		write(2, "Error\n", 6);
