@@ -90,6 +90,7 @@ Then run:
 ## Algorithm References
 
 - **Thuggonaut**: (https://www.youtube.com/watch?v=wRvipSG4Mmk) - Guide explaining the project and a valid solution
+- **gemartin99**: (https://github.com/gemartin99/Push-Swap-Tester) - Tester
 - **42 Intra**: [Subject PDF](https://cdn.intra.42.fr/pdf/pdf/96055/en.subject.pdf) - Official project specifications
 - **Stack Sorting Algorithms**: General concepts on sorting with restricted operations, Turk
 
